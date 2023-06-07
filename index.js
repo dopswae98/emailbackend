@@ -1,6 +1,42 @@
 const express = require("express");
 const app = express();
 
+const nodemailer = require("nodemailer");
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: "kingpingx88@gmail.com",
+    pass: "bmspoqmidwltkygb",
+  },
+});
+
+app.get("/send-email", (req, res) => {
+  // const email = req.body.email;
+  // const subject = req.body.subject;
+  // const message = req.body.message;
+  const email = "ephraimmatarutse@gmail.com";
+  const subject = "req.body.subject";
+  const message = "req.body.message";
+
+  const mailOptions = {
+    from: "kingpingx88@gmail.com",
+    to: email,
+    subject: subject,
+    text: message,
+  };
+
+  transporter.sendMail(mailOptions, (err, info) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send("Error sending email", err.message);
+    } else {
+      res.send("Email sent successfully!");
+    }
+  });
+});
+  
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
