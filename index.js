@@ -1,5 +1,8 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 const nodemailer = require("nodemailer");
 
@@ -11,13 +14,13 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-app.get("/send-email", (req, res) => {
-  // const email = req.body.email;
-  // const subject = req.body.subject;
-  // const message = req.body.message;
-  const email = "ephraimmatarutse@gmail.com";
-  const subject = "req.body.subject";
-  const message = "req.body.message";
+app.post("/send-email", (req, res) => {
+  const email = req.body.email;
+  const subject = req.body.subject;
+  const message = req.body.message;
+  //   const email = "ephraimmatarutse@gmail.com";
+  //   const subject = "req.body.subject";
+  //   const message = "req.body.message";
 
   const mailOptions = {
     from: "kingpingx88@gmail.com",
