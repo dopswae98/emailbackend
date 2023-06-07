@@ -43,13 +43,15 @@ app.post("/send-email", (req, res) => {
     }
   });
 });
-app.get("/send-email", (req, res) => {
-  const email = req.body.email;
-  const subject = req.body.subject;
-  const message = req.body.message;
-  // console.log("body", body);
-  console.log(req.body.email);
-  res.send(email);
+
+
+// app.get("/send-email", (req, res) => {
+//   const email = req.body.email;
+//   const subject = req.body.subject;
+//   const message = req.body.message;
+//   // console.log("body", body);
+//   console.log(req.body.email);
+//   res.send(email);
   //   const email = "ephraimmatarutse@gmail.com";
   //   const subject = "req.body.subject";
   //   const message = "req.body.message";
@@ -69,7 +71,7 @@ app.get("/send-email", (req, res) => {
   //       res.send("Email sent successfully!");
   //     }
   //   });
-});
+// });
   
 
 app.get("/", (req, res) => {
