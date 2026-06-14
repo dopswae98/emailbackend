@@ -31,26 +31,89 @@ app.post("/send-email", async (req, res) => {
       replyTo: email,
       subject: `New Contact Form: ${subject}`,
       html: `
-        <div style="font-family: Arial, sans-serif; background:#f4f7f6; padding:20px;">
-          <div style="max-width:600px; margin:auto; background:white; border-radius:12px; overflow:hidden;">
-            <div style="background:#0f5132; color:white; padding:18px;">
-              <h2 style="margin:0;">Swift & Gentle Moving + Storage</h2>
-              <p style="margin:5px 0 0;">New Website Contact Form Submission</p>
-            </div>
+<div style="
+  font-family:'Poppins','Cascadia Code','Segoe UI',Arial,sans-serif;
+  background:#f4f7f6;
+  padding:30px;
+  font-size:18px;
+  line-height:1.8;
+">
+  <div style="
+    max-width:700px;
+    margin:auto;
+    background:white;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 4px 20px rgba(0,0,0,0.1);
+  ">
 
-            <div style="padding:20px; color:#222;">
-              <p><strong style="color:#0f5132;">Name:</strong> ${name}</p>
-              <p><strong style="color:#0f5132;">Sender Email:</strong> ${email}</p>
-              <p><strong style="color:#0f5132;">Subject:</strong> ${subject}</p>
+    <div style="
+      background:#0f5132;
+      color:white;
+      padding:25px;
+    ">
+      <h1 style="
+        margin:0;
+        font-size:30px;
+        font-weight:700;
+      ">
+        Swift & Gentle Moving + Storage
+      </h1>
 
-              <div style="margin-top:20px; padding:15px; background:#eef8f2; border-left:5px solid #0f5132;">
-                <strong style="color:#0f5132;">Message:</strong>
-                <p>${message}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      `,
+      <p style="
+        margin-top:10px;
+        font-size:18px;
+      ">
+        New Contact Form Submission
+      </p>
+    </div>
+
+    <div style="padding:30px;">
+
+      <p style="font-size:18px;">
+        <strong style="color:#0f5132;">Name:</strong>
+        ${name}
+      </p>
+
+      <p style="font-size:18px;">
+        <strong style="color:#0f5132;">Email:</strong>
+        ${email}
+      </p>
+
+      <p style="font-size:18px;">
+        <strong style="color:#0f5132;">Subject:</strong>
+        ${subject}
+      </p>
+
+      <div style="
+        margin-top:25px;
+        background:#eef8f2;
+        padding:25px;
+        border-left:6px solid #0f5132;
+        border-radius:8px;
+      ">
+        <h3 style="
+          margin-top:0;
+          color:#0f5132;
+          font-size:22px;
+        ">
+          Message
+        </h3>
+
+        <p style="
+          font-family:'Cascadia Code',monospace;
+          font-size:18px;
+          white-space:pre-wrap;
+          color:#222;
+        ">
+${message}
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+`,
     };
 
     await transporter.sendMail(mailOptions);
