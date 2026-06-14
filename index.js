@@ -18,7 +18,7 @@ const transporter = nodemailer.createTransport({
 
 app.post("/send-email", async (req, res) => {
   try {
-    console.log("BODY RECEIVED:", req.body);
+    // console.log("BODY RECEIVED:", req.body);
 
     const name = req.body.name || "No name provided";
     const email = req.body.email || "No email provided";
@@ -120,7 +120,7 @@ ${message}
 
     res.status(200).json({ success: true });
   } catch (err) {
-    console.error("EMAIL ERROR:", err);
+    // console.error("EMAIL ERROR:", err);
     res.status(500).json({
       success: false,
       error: err.message,
@@ -163,7 +163,7 @@ app.get("/", (req, res) => {
 });
 
 app.listen(4000, () => {
-  console.log("Example app listening on port $4000!");
+  // console.log("Example app listening on port $4000!");
 });
 
 app.get("/api/data", (req, res) => {
