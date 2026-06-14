@@ -19,7 +19,7 @@ const transporter = nodemailer.createTransport({
 app.post("/send-email", (req, res) => {
   const email = req.body.email;
   const subject = req.body.name;
-  const message = req.body.message;
+  const message = req.body.message || req.body.subject;
   // console.log("body", body);
   console.log(req.body.email);
   console.log(req.body.message);
